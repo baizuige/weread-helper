@@ -1,0 +1,138 @@
+/* 基础样式覆盖 */
+.readerContainer {
+  background: var(--bg-color, #f5ebd8) !important;
+  transition: background 0.5s ease;
+}
+
+.readArea {
+  background: var(
+    --page-gradient,
+    linear-gradient(145deg, #f3e4c4 0%, #ecdcba 100%)
+  ) !important;
+  box-shadow: 0 2px 15px rgba(175, 150, 100, 0.12) !important;
+}
+
+/* 夜间模式自动适配 */
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #3E362F;
+    --page-gradient: linear-gradient(145deg, #4D443C 0%, #3E362F 100%);
+  }
+} */
+
+.wr_whiteTheme {
+  .readerControls_item.readerControls_skin {
+    display: flex;
+  }
+}
+
+/* 暖色调 */
+.wr_warmTheme.wr_whiteTheme {
+  .readerChapterContent_container,
+  .readerTopBar {
+    background-color: #f7edd4 !important;
+  }
+  .readerControls_item,
+  .readerChapterContent {
+    background-color: #ecdcba !important;
+    /* animation: ; */
+  }
+}
+
+.wr_projectTheme.wr_whiteTheme {
+  .readerChapterContent_container,
+  .readerTopBar {
+    background-color: #e8f5e9 !important;
+  }
+
+  .readerControls_item,
+  .readerChapterContent {
+    background-color: #cfe9d1 !important;
+    /* animation: ; */
+  }
+}
+
+.readerControls_item.readerControls_skin {
+  display: none;
+  button {
+    width: 100%;
+    height: 100%;
+    line-height: 100%;
+  }
+  .svg-icon {
+    width: 30px;
+    height: 30px;
+    fill: #858c96;
+  }
+  .svg-icon:hover {
+    fill: #333;
+  }
+}
+.skinContainer {
+  position: absolute;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  .readerControls_skinBar {
+    position: absolute;
+    padding: 8px 12px;
+    /* right: 80px; */
+    background-color: #f4f5f7;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    gap: 8px;
+    display: flex;
+    z-index: 101;
+    right: 0;
+
+    .readerControls_skinBar_item {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+    }
+
+    .white_color {
+      background: #fff;
+    }
+
+    .warm_color {
+      background: #ecdcba;
+    }
+
+    .project_color {
+      background: #e3f2e5;
+    }
+  }
+
+  .readerControlsSkinBar_maskLayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.1);
+    opacity: 0;
+
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
+  }
+  &.skinContainer_show {
+    display: block;
+    .readerControlsSkinBar_maskLayer {
+      animation-name: showMask;
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes showMask {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

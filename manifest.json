@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Wechat Read Helper",
+  "version": "1.0",
+  "description": "A Chrome extension to help with reading Wechat articles.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["inject.css"]
+    }
+  ]
+}
