@@ -1,16 +1,13 @@
-// const observer = new MutationObserver((mutations, observer) => {
+// 检测网页加载完毕
 
 const skinStore = localStorage.getItem('custom_skin')
 if (skinStore) {
-  document.body.classList.add('wr_whiteTheme')
+  // document.body.classList.add('wr_whiteTheme')
   document.body.classList.remove('wr_warmTheme')
   document.body.classList.remove('wr_projectTheme')
   document.body.classList.add(`wr_${skinStore}Theme`)
 }
 const readerControls = document.querySelector('.readerControls')
-// console.log(readerControls)
-
-// if (readerControls) {
 // 创建新的按钮
 const newButton = document.createElement('button')
 newButton.innerHTML = `
